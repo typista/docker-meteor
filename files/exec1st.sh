@@ -3,11 +3,11 @@ HOSTNAME=`hostname`
 FQDN=`echo $HOSTNAME | sed -r "s/_/\./g"`
 ROOT=/var/www/$HOSTNAME
 HTML=$ROOT
-BASE=$URL_GIT/html
 if [ ! -e $HTML ]; then
 	mkdir -p $HTML
-	meteor create app
 	curl install.meteor.com | /bin/sh
+	cd $HTML
+	meteor create app
 fi
 
 CRON_SHELL=/root/export/start.sh
