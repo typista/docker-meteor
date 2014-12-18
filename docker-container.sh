@@ -15,7 +15,7 @@ else
     	IMAGE=$IMAGE:$3
     fi
 	docker run -d --privileged --restart=always --name="$__FQDN__" --hostname="$__HOSTNAME__" \
-		-p $__PORT__:80 \
+		-p $__PORT__:3000 \
 		-v /var/www/:/var/www/ \
 		-v ${PWD}/export/root/:/root/export/ \
 		$IMAGE
