@@ -5,8 +5,10 @@ ROOT=/var/www/$HOSTNAME
 HTML=$ROOT
 if [ ! -e $HTML ]; then
 	mkdir -p $HTML
-	curl install.meteor.com | /bin/sh
-	cd $HTML
+fi
+curl install.meteor.com | /bin/sh
+cd $HTML
+if [ ! -e $HTML/app ]; then
 	meteor create app
 fi
 
